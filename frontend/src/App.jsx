@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = window.location.origin.includes('localhost') ? 'http://localhost:8000/api' : '/api';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('leads'); // leads, logs, settings, analytics
