@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sdr-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sdr_production_app
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist SQLite database directly on the host machine
+      - ./backend/sdr_database.db:/app/sdr_database.db
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
